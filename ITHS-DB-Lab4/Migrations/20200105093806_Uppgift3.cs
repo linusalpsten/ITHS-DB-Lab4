@@ -68,7 +68,7 @@ namespace ITHS_DB_Lab4.Migrations
                 type: "nvarchar(max)",
                 nullable: true);
 
-            migrationBuilder.Sql("update Users Set FirstName = '', LastName = '' from (select FirstName+' '+LastName as [Name] from Users) as Names where Names.[Name] = Users.FirstName+' '+Users.LastName");
+            migrationBuilder.Sql("update Users Set [Name] = Names.[Name] from (select FirstName+' '+LastName as [Name] from Users) as Names where Names.[Name] = Users.FirstName+' '+Users.LastName");
 
             migrationBuilder.DropColumn(
                 name: "FirstName",
